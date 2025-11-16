@@ -61,26 +61,38 @@ div#autocompleteResults {
   flex-wrap: wrap;
 }
 
+#homeHeader .navbar {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 12px 32px;
+  flex-wrap: nowrap;
+  gap: 24px;
+}
+
 a.navbar-brand {
   padding-right: 5px;
 }
 
 .homeHeader .navtab {
   display: flex;
-  justify-content: center;
-  padding-left: 10px;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 12px;
   background-color: #e6eeff;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .homeHeader .navbar-nav {
   display: flex;
   align-items: center;
-  margin-right: auto;
+  margin-right: 0;
+  gap: 8px;
 }
 
 .homeHeader #input_data {
-  width: 35vw;
+  width: 100%;
   border: none;
   background-color: transparent;
   padding: 10px;
@@ -138,9 +150,42 @@ a.navbar-brand {
 
 .homeHeader #navbarNav_ {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 43px;
+  justify-content: space-between;
+  width: 100%;
+  gap: 24px;
+}
+
+.homeHeader #navbarNav_ > .navbar-nav:first-child {
+  flex: 1;
+}
+
+.homeHeader #navbarNav_ > .navbar-nav:first-child .nav-item,
+.homeHeader #navbarNav_ > .navbar-nav:first-child .navtab {
+  width: 100%;
+}
+
+.homeHeader #navbarNav_ > .navbar-nav.ml-auto {
+  margin-left: auto;
+  gap: 4px;
+  flex-wrap: nowrap;
+}
+
+.homeHeader #navbarNav_ > .navbar-nav.ml-auto .nav-item {
+  flex-shrink: 0;
+}
+
+.homeHeader .flex-grow {
+  flex: 1;
+  display: flex;
+}
+
+.homeHeader .search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding-right: 6px;
 }
 
 .cartLogoandname {

@@ -64,7 +64,7 @@ body {
 
 #categorylist-wrapper {
   margin-top: 8px;
-  width: -webkit-fill-available;
+  width: 100%;
 }
 
 @media screen and (max-width: 770px) {
@@ -77,48 +77,71 @@ body {
 /* for category tab */
 
 .categorylist-wrapper {
-  width: 100vw;
-  overflow-x: scroll;
-  /* z-index: 500; */
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 8px 20px;
+  overflow-x: auto;
 }
 
 .categorylist-wrapper::-webkit-scrollbar {
   display: none;
 }
 
-
 .categories {
-  display:grid;
-  grid-auto-flow: column;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
   justify-content: space-between;
-  align-items: center;
-  background-color: rgb(255, 253, 253);
-  position: relative;
-  padding: 0;
-  height: calc(100% - 16px);
-  padding: 0 4%;
-  width: 100%;
-  min-width: 1000px;
-  box-shadow: 0 0 4px rgb(76, 76, 76);
+  gap: 32px;
+  padding: 16px 32px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  min-width: fit-content;
 }
 
- .categories>li {
-  position: static;
+.categories > li {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-left: auto;
-  /* display: inline-block; */
-  padding: 20px 15px;
+  gap: 8px;
+  min-width: 70px;
   cursor: pointer;
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-
 }
 
 .categories li a {
   text-decoration: none;
-  color: black;
+  color: inherit;
   font-weight: 600;
+}
+
+.categories > li > span {
+  display: block;
+  color: #222;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 992px) {
+  .categories {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .categories > li {
+    flex: 0 0 calc(25% - 16px);
+  }
+}
+
+@media (max-width: 600px) {
+  .categories > li {
+    flex: 0 0 calc(33.333% - 12px);
+  }
 }
 
 .categories>li>ul {
@@ -342,39 +365,35 @@ body {
   transform: scale(1.1);
 }
 
-Search Bar 
-#searchbar{
+/* Search Bar */
+#searchbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   width: 100%;
-  
-}
- #searchbar input {
-  transition: border-color 0.3s ease-in-out;
- 
+  min-width: 0;
 }
 
-#searchbar {
-  display: flex; /* Ensures flex layout */
-  align-items: center; /* Centers items vertically */
-  min-width: 40%; 
-  
+#searchbar input {
+  transition: border-color 0.3s ease-in-out;
 }
 
 #searchbar .flex-grow {
-  flex-grow: 1; /* Allows the input to grow */
+  flex: 1;
+  display: flex;
+  min-width: 0;
 }
 
 #searchbar .searchbar {
-  width: 100%; /* Makes the input take up available space */
-  min-width: 700px;
-  flex-grow: 1;
+  width: 100%;
+  min-width: 0;
+  flex: 1;
   padding: 8px;
-   
-  box-sizing: border-box; /* Ensures padding is included in width */
+  box-sizing: border-box;
 }
 
-
 #searchbar input:focus {
-  border-color: #2874F0; /* Change the border color on focus */
+  border-color: #2874F0;
 }
 
 /* Account Dropdown */

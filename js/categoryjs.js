@@ -9,14 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const icon = document.createElement("img");
         icon.src = "img/" + categoryData.icon;
 
-        const nameLink = document.createElement("a");
-        nameLink.href = "#"; // Default href is "#"
-        nameLink.textContent = categoryData.name;
-
         const name = document.createElement("span");
-        name.appendChild(document.createElement("br"));
-        name.appendChild(nameLink);
-
+        name.className = "category-label";
+        name.textContent = categoryData.name;
         categoryItem.appendChild(icon);
         categoryItem.appendChild(name);
 
