@@ -27,6 +27,17 @@ if (moreLinksDropdown) {
   moreLinksDropdown.addEventListener("mouseleave", toggleDropdownMenu);
 }
 
+const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+const navbarNavWrapper = document.getElementById("navbarNav_");
+
+if (mobileMenuToggle && navbarNavWrapper) {
+  mobileMenuToggle.setAttribute("aria-expanded", "false");
+  mobileMenuToggle.addEventListener("click", function () {
+    const isOpen = navbarNavWrapper.classList.toggle("is-visible");
+    mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+}
+
 // for kart
 
 try {

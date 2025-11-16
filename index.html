@@ -291,25 +291,27 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Show the popup when the page loads
             const popupContainer = document.getElementById("divA");
-            popupContainer.style.display = "flex";
-
-            // Hide the popup when the close button is clicked
             const closeBtn = document.getElementById("close-btn");
-            closeBtn.addEventListener("click", function () {
-                popupContainer.style.display = "none";
-            });
+            const form = document.querySelector("#divA form");
+            const shouldAutoOpen = window.innerWidth > 992;
 
-            // Prevent form submission from reloading the page and close the popup
-            const form = document.querySelector("form");
-            form.addEventListener("submit", function (event) {
-                event.preventDefault();
-                // Your form submission logic here, e.g., AJAX call
-                console.log("Form submitted");
-                // Close the popup
-                popupContainer.style.display = "none";
-            });
+            if (shouldAutoOpen) {
+                popupContainer.style.display = "flex";
+            }
+
+            if (closeBtn) {
+                closeBtn.addEventListener("click", function () {
+                    popupContainer.style.display = "none";
+                });
+            }
+
+            if (form) {
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    popupContainer.style.display = "none";
+                });
+            }
         });
     </script>
     <style>
@@ -729,14 +731,29 @@
     <!--Header start  -->
     <header id="homeHeader">
         <nav class="navbar homeHeader navbar-expand-lg navbar-light bg-light">
+            <button class="mobile-menu-btn" id="mobile-menu-toggle" type="button" aria-label="Open menu">
+                <i class="bi bi-list"></i>
+            </button>
             <a class="navbar-brand" href="https://flipkart-clone-seven-azure.vercel.app/">
                 <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg"
                     width="160" height="40" title="Flipkart" alt="Flipkart" />
             </a>
-            <div id="navbarNav_" style="display: flex; align-items: center;">
+            <div class="mobile-actions">
+                <a class="mobile-icon" href="account/notifications.html" aria-label="Notifications">
+                    <i class="bi bi-bell"></i>
+                </a>
+                <a class="mobile-login" href="account/login-signup.html">
+                    <i class="bi bi-person"></i>
+                    <span>Login</span>
+                </a>
+                <a class="mobile-icon" href="viewcart/" aria-label="Cart">
+                    <i class="bi bi-cart3"></i>
+                </a>
+            </div>
+            <div id="navbarNav_">
                 <ul class="navbar-nav">
                     <li class="nav-item navItem1">
-                        <div id="searchbar" class="navtab">
+                        <div id="searchbar" class="navtab mobile-search-tab">
                             <span id="searchButton" class="search-icon">
                                 <svg width="30" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -759,7 +776,7 @@
                         </div>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto mobile-nav-links">
                     <li class="nav-item dropdown" id="navbarDropdown">
                         <a class="nav-link acnavdd ml-3 mr-5" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -863,6 +880,73 @@
  <div id="categorylist-wrapper" class="container-fluid categorylist-wrapper">
     <ul id="categories" class="categories"></ul>
 </div>
+
+    <!-- Mobile only top deals -->
+    <section class="mobile-top-deals">
+        <div class="mobile-top-deals__header">Top Deals</div>
+        <ul class="mobile-top-deals__list">
+            <li>
+                <div class="deal-icon">
+                    <img src="https://img.icons8.com/fluency/48/projector.png" alt="Projector icon" loading="lazy">
+                </div>
+                <div class="deal-info">
+                    <h5>Projector</h5>
+                    <span>From ₹6990</span>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </li>
+            <li>
+                <div class="deal-icon">
+                    <img src="https://img.icons8.com/fluency/48/bluetooth-speaker.png" alt="Speakers" loading="lazy">
+                </div>
+                <div class="deal-info">
+                    <h5>Best Selling Mobile Speakers</h5>
+                    <span>From ₹499*</span>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </li>
+            <li>
+                <div class="deal-icon">
+                    <img src="https://img.icons8.com/fluency/48/monitor.png" alt="Monitor" loading="lazy">
+                </div>
+                <div class="deal-info">
+                    <h5>Monitors</h5>
+                    <span>From ₹6599</span>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </li>
+            <li>
+                <div class="deal-icon">
+                    <img src="https://img.icons8.com/fluency/48/computer-monitor.png" alt="Monitor" loading="lazy">
+                </div>
+                <div class="deal-info">
+                    <h5>Monitor</h5>
+                    <span>From ₹8279</span>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </li>
+            <li>
+                <div class="deal-icon">
+                    <img src="https://img.icons8.com/fluency/48/camera.png" alt="Camera" loading="lazy">
+                </div>
+                <div class="deal-info">
+                    <h5>Top Mirrorless Cameras</h5>
+                    <span>Shop Now!</span>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </li>
+            <li>
+                <div class="deal-icon">
+                    <img src="https://img.icons8.com/fluency/48/smart-watch.png" alt="Smartwatch" loading="lazy">
+                </div>
+                <div class="deal-info">
+                    <h5>Fastrack Smartwatches</h5>
+                    <span>From ₹1,399</span>
+                </div>
+                <i class="bi bi-chevron-right"></i>
+            </li>
+        </ul>
+    </section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

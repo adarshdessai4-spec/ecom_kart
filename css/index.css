@@ -9,7 +9,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #dcdcdc !important;
+  background: #f1f3f6 !important;
   overflow-x: hidden;
   user-select: none;         /* Disable text selection in all browsers */
   -webkit-user-select: none; /* Safari */
@@ -69,7 +69,7 @@ body {
 
 @media screen and (max-width: 770px) {
   #categorylist-wrapper {
-    margin-top: 50px;
+    margin-top: 16px;
   }
 }
 
@@ -139,8 +139,107 @@ body {
 }
 
 @media (max-width: 600px) {
+  .categorylist-wrapper {
+    padding: 0 12px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .categories {
+    width: 100%;
+    min-width: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    padding: 12px 0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
   .categories > li {
-    flex: 0 0 calc(33.333% - 12px);
+    flex: unset;
+    min-width: unset;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 10px 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .categories li img {
+    width: 54px;
+    height: 54px;
+  }
+
+  #default-carousel {
+    padding: 0 12px;
+  }
+
+  #default-carousel .relative {
+    border-radius: 18px;
+  }
+
+}
+
+.mobile-top-deals {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .mobile-top-deals {
+    display: block;
+    margin: 0 12px 16px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+
+  .mobile-top-deals__header {
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 16px 8px;
+    color: #2a2a2a;
+  }
+
+  .mobile-top-deals__list {
+    list-style: none;
+    margin: 0;
+    padding: 0 8px 10px;
+  }
+
+  .mobile-top-deals__list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 8px;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .mobile-top-deals__list li:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-top-deals__list h5 {
+    font-size: 14px;
+    margin: 0;
+    color: #222;
+  }
+
+  .mobile-top-deals__list span {
+    font-size: 12px;
+    color: #757575;
+  }
+
+  .mobile-top-deals__list .deal-icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-top-deals__list i {
+    margin-left: auto;
+    color: #b0b0b0;
+    font-size: 16px;
   }
 }
 
